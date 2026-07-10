@@ -133,65 +133,115 @@
 
   .menu-toggle { display: none; }
 
-  /* ============ COUNTDOWN BANNER ============ */
-  .countdown-banner {
-    background: linear-gradient(135deg, #6B4423 0%, #8B5A2B 50%, #6B4423 100%);
-    color: #fff;
+  /* ============ COUNTDOWN (hero-integrated) ============ */
+  .countdown-section {
+    padding: 56px 0 8px;
     text-align: center;
-    padding: 32px 20px 28px;
+  }
+  .countdown-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 8px 14px; border-radius: 999px;
+    background: var(--cream-2);
+    border: 1px solid var(--line);
+    font-size: 12px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold-deep);
+    font-weight: 600;
+  }
+  .countdown-eyebrow::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,162,75,0.2);
+  }
+  .countdown-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3vw, 34px);
+    font-weight: 500;
+    color: var(--brown-deep);
+    margin-top: 18px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+  .countdown-subtitle {
+    font-size: 15px;
+    color: var(--muted);
+    margin-top: 8px;
+    letter-spacing: 0.02em;
+  }
+  .countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: clamp(10px, 2vw, 24px);
+    flex-wrap: wrap;
+    margin-top: 36px;
+  }
+  .cd-card {
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: clamp(20px, 3vw, 32px) clamp(18px, 2.5vw, 30px);
+    min-width: clamp(72px, 12vw, 120px);
+    text-align: center;
+    box-shadow: 0 4px 20px -8px rgba(62,40,18,0.08), 0 1px 3px rgba(62,40,18,0.04);
+    transition: transform .3s ease, box-shadow .3s ease;
     position: relative;
     overflow: hidden;
   }
-  .countdown-banner::before {
+  .cd-card::after {
     content: '';
     position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at center, rgba(201,162,75,0.15) 0%, transparent 70%);
-    pointer-events: none;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0.5;
   }
-  .countdown-banner .countdown-label {
+  .cd-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px -10px rgba(62,40,18,0.14), 0 2px 6px rgba(62,40,18,0.06);
+  }
+  .cd-number {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(18px, 2.5vw, 28px);
+    font-size: clamp(36px, 5.5vw, 60px);
     font-weight: 600;
-    letter-spacing: 0.5px;
-    margin-bottom: 18px;
-    opacity: 0.95;
-    position: relative;
-  }
-  .countdown-banner .countdown-timer {
-    display: flex;
-    justify-content: center;
-    gap: clamp(12px, 3vw, 40px);
-    flex-wrap: wrap;
-    position: relative;
-  }
-  .countdown-banner .cd-unit {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: clamp(64px, 10vw, 100px);
-  }
-  .countdown-banner .cd-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(36px, 6vw, 64px);
-    font-weight: 700;
     line-height: 1;
-    color: #C9A24B;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    color: var(--brown-deep);
     font-variant-numeric: tabular-nums;
+    display: inline-block;
+    transition: transform .3s cubic-bezier(0.34,1.56,0.64,1), opacity .3s ease;
   }
-  .countdown-banner .cd-label {
+  .cd-number.tick {
+    transform: scale(1.08);
+    opacity: 0.85;
+  }
+  .cd-label {
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    margin-top: 8px;
-    opacity: 0.8;
+    color: var(--muted);
+    margin-top: 12px;
+  }
+  .countdown-done {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(24px, 3.5vw, 38px);
+    font-weight: 500;
+    color: var(--gold-deep);
+    font-style: italic;
+    padding: 28px 0 8px;
+    display: none;
+    animation: cd-fade-in 1s ease forwards;
+  }
+  @keyframes cd-fade-in {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
   }
   @media (max-width: 768px) {
-    .countdown-banner { padding: 24px 16px 22px; }
-    .countdown-banner .countdown-timer { gap: 16px; }
-    .countdown-banner .cd-unit { min-width: 60px; }
+    .countdown-section { padding: 40px 0 4px; }
+    .countdown-timer { gap: 10px; margin-top: 28px; }
+    .cd-card { padding: 18px 14px; min-width: 68px; border-radius: 14px; }
+  }
+  @media (max-width: 480px) {
+    .countdown-timer { gap: 8px; }
+    .cd-card { min-width: 64px; padding: 16px 10px; }
   }
 
   /* ============ HERO ============ */
@@ -903,19 +953,21 @@
     </div>
   </header>
 
-  <section class="countdown-banner" aria-label="Contagem regressiva">
-    <div class="countdown-label">Contagem regressiva para o início do Encontro com Deus Redenção — Julho 2026</div>
-    <div class="countdown-timer" id="countdown-timer">
-      <div class="cd-unit"><span class="cd-number" id="cd-days">--</span><span class="cd-label">Dias</span></div>
-      <div class="cd-unit"><span class="cd-number" id="cd-hours">--</span><span class="cd-label">Horas</span></div>
-      <div class="cd-unit"><span class="cd-number" id="cd-mins">--</span><span class="cd-label">Minutos</span></div>
-      <div class="cd-unit"><span class="cd-number" id="cd-secs">--</span><span class="cd-label">Segundos</span></div>
-    </div>
-  </section>
-
   <main id="top">
-    <!-- HERO -->
+    <!-- HERO with integrated countdown -->
     <section class="hero container" aria-labelledby="hero-title">
+      <div class="countdown-section">
+        <span class="countdown-eyebrow">Falta pouco</span>
+        <div class="countdown-title">Contagem regressiva para o início do Encontro com Deus Redenção – Julho 2026</div>
+        <div class="countdown-subtitle">24 de julho de 2026 às 21:30</div>
+        <div class="countdown-timer" id="countdown-timer">
+          <div class="cd-card"><span class="cd-number" id="cd-days">--</span><div class="cd-label">Dias</div></div>
+          <div class="cd-card"><span class="cd-number" id="cd-hours">--</span><div class="cd-label">Horas</div></div>
+          <div class="cd-card"><span class="cd-number" id="cd-mins">--</span><div class="cd-label">Minutos</div></div>
+          <div class="cd-card"><span class="cd-number" id="cd-secs">--</span><div class="cd-label">Segundos</div></div>
+        </div>
+        <div class="countdown-done" id="countdown-done">O Encontro com Deus Redenção já começou.</div>
+      </div>
       <span class="hero-eyebrow">Projeto de Apadrinhamento Espiritual</span>
       <h1 id="hero-title">Adote uma alma, <em>transforme</em> uma vida.</h1>
       <p class="hero-sub">
@@ -1244,7 +1296,7 @@
           <button type="button" class="amount-chip" onclick="setAmount(25)">€25</button>
           <button type="button" class="amount-chip selected" onclick="setAmount(50)">€50</button>
           <button type="button" class="amount-chip" onclick="setAmount(100)">€100</button>
-          <button type="button" class="amount-chip" onclick="setAmount(250)">€250</button>
+          <button type="button" class="amount-chip" onclick="setAmount(110)">€110</button>
         </div>
         <input type="number" id="adoptAmount" value="50" min="1" step="1" />
       </div>
@@ -1357,24 +1409,45 @@
    ================================================== */
 (function() {
   const target = new Date('2026-07-24T21:30:00+01:00');
-  const dEl = document.getElementById('cd-days');
-  const hEl = document.getElementById('cd-hours');
-  const mEl = document.getElementById('cd-mins');
-  const sEl = document.getElementById('cd-secs');
+  const els = {
+    days: document.getElementById('cd-days'),
+    hours: document.getElementById('cd-hours'),
+    mins: document.getElementById('cd-mins'),
+    secs: document.getElementById('cd-secs'),
+    timer: document.getElementById('countdown-timer'),
+    done: document.getElementById('countdown-done'),
+  };
+  const prev = { days: '', hours: '', mins: '', secs: '' };
+
   function pad(n) { return String(n).padStart(2, '0'); }
+
+  function setVal(el, key, val) {
+    const s = pad(val);
+    if (prev[key] !== s) {
+      el.classList.remove('tick');
+      void el.offsetWidth;
+      el.textContent = s;
+      el.classList.add('tick');
+      setTimeout(() => el.classList.remove('tick'), 300);
+      prev[key] = s;
+    }
+  }
+
   function tick() {
     const now = new Date();
-    let diff = Math.max(0, target - now);
+    const diff = target - now;
+    if (diff <= 0) {
+      if (els.timer) els.timer.style.display = 'none';
+      if (els.done) els.done.style.display = 'block';
+      return;
+    }
     const totalSec = Math.floor(diff / 1000);
-    const days = Math.floor(totalSec / 86400);
-    const hours = Math.floor((totalSec % 86400) / 3600);
-    const mins = Math.floor((totalSec % 3600) / 60);
-    const secs = totalSec % 60;
-    if (dEl) dEl.textContent = pad(days);
-    if (hEl) hEl.textContent = pad(hours);
-    if (mEl) mEl.textContent = pad(mins);
-    if (sEl) sEl.textContent = pad(secs);
+    setVal(els.days, 'days', Math.floor(totalSec / 86400));
+    setVal(els.hours, 'hours', Math.floor((totalSec % 86400) / 3600));
+    setVal(els.mins, 'mins', Math.floor((totalSec % 3600) / 60));
+    setVal(els.secs, 'secs', totalSec % 60);
   }
+
   tick();
   setInterval(tick, 1000);
 })();
