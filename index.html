@@ -133,6 +133,67 @@
 
   .menu-toggle { display: none; }
 
+  /* ============ COUNTDOWN BANNER ============ */
+  .countdown-banner {
+    background: linear-gradient(135deg, #6B4423 0%, #8B5A2B 50%, #6B4423 100%);
+    color: #fff;
+    text-align: center;
+    padding: 32px 20px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .countdown-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(201,162,75,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .countdown-banner .countdown-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.5vw, 28px);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 18px;
+    opacity: 0.95;
+    position: relative;
+  }
+  .countdown-banner .countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: clamp(12px, 3vw, 40px);
+    flex-wrap: wrap;
+    position: relative;
+  }
+  .countdown-banner .cd-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: clamp(64px, 10vw, 100px);
+  }
+  .countdown-banner .cd-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 700;
+    line-height: 1;
+    color: #C9A24B;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    font-variant-numeric: tabular-nums;
+  }
+  .countdown-banner .cd-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 8px;
+    opacity: 0.8;
+  }
+  @media (max-width: 768px) {
+    .countdown-banner { padding: 24px 16px 22px; }
+    .countdown-banner .countdown-timer { gap: 16px; }
+    .countdown-banner .cd-unit { min-width: 60px; }
+  }
+
   /* ============ HERO ============ */
   .hero {
     padding: 80px 0 60px;
@@ -560,7 +621,7 @@
   .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
   /* Payment picker */
-  .pay-methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .pay-methods { display: grid; grid-template-columns: 1fr; gap: 10px; }
   .pay-method {
     padding: 16px 12px; text-align: center;
     background: var(--card); border: 1.5px solid var(--line);
@@ -575,9 +636,7 @@
     display: grid; place-items: center;
     font-weight: 800; font-size: 12px; letter-spacing: 0.02em;
   }
-  .pay-icon.stripe { background: #635BFF; color: #fff; }
   .pay-icon.mbway { background: #ED2E38; color: #fff; }
-  .pay-icon.paypal { background: #003087; color: #fff; }
   .pay-method .pm-name { font-size: 12px; font-weight: 600; color: var(--brown-deep); }
   .pay-note {
     margin-top: 10px; padding: 12px 14px;
@@ -823,7 +882,7 @@
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <a href="#top" class="brand" aria-label="Adote uma Alma — Início">
-        <span class="brand-logo"><img src="assets/logo-brown.png" alt="" /></span>
+        <span class="brand-logo"><img src="logo-brown.png" alt="" /></span>
         <span>
           <div class="brand-name">Adote uma Alma</div>
           <div class="brand-tag">Paternidade às Nações</div>
@@ -843,6 +902,16 @@
       </nav>
     </div>
   </header>
+
+  <section class="countdown-banner" aria-label="Contagem regressiva">
+    <div class="countdown-label">Contagem regressiva para o início do Encontro com Deus Redenção — Julho 2026</div>
+    <div class="countdown-timer" id="countdown-timer">
+      <div class="cd-unit"><span class="cd-number" id="cd-days">--</span><span class="cd-label">Dias</span></div>
+      <div class="cd-unit"><span class="cd-number" id="cd-hours">--</span><span class="cd-label">Horas</span></div>
+      <div class="cd-unit"><span class="cd-number" id="cd-mins">--</span><span class="cd-label">Minutos</span></div>
+      <div class="cd-unit"><span class="cd-number" id="cd-secs">--</span><span class="cd-label">Segundos</span></div>
+    </div>
+  </section>
 
   <main id="top">
     <!-- HERO -->
@@ -919,7 +988,7 @@
           <article class="how-card">
             <div class="how-num">02</div>
             <h3>Contribua com amor</h3>
-            <p>Faça a sua contribuição através de Stripe, MB WAY ou PayPal. Cada valor conta — pequeno ou grande.</p>
+            <p>Faça a sua contribuição através de MB WAY. Cada valor conta — pequeno ou grande.</p>
           </article>
           <article class="how-card">
             <div class="how-num">03</div>
@@ -930,9 +999,7 @@
 
         <div class="providers">
           <span class="providers-label">Métodos de pagamento seguros</span>
-          <span class="provider-badge"><span class="p-dot" style="background:#635BFF"></span>Stripe</span>
           <span class="provider-badge"><span class="p-dot" style="background:#ED2E38"></span>MB WAY</span>
-          <span class="provider-badge"><span class="p-dot" style="background:#003087"></span>PayPal</span>
         </div>
       </div>
     </section>
@@ -968,7 +1035,7 @@
         <div>
           <div class="footer-brand brand">
             <span class="brand-logo" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.15);">
-              <img src="assets/logo-transparent.png" alt="" style="filter:brightness(0) invert(1);" />
+              <img src="logo-transparent.png" alt="" style="filter:brightness(0) invert(1);" />
             </span>
             <span>
               <div class="brand-name">Adote uma Alma</div>
@@ -1008,7 +1075,7 @@
   <div class="login-shell">
     <div class="login-card">
       <div class="brand">
-        <span class="brand-logo"><img src="assets/logo-brown.png" alt="" /></span>
+        <span class="brand-logo"><img src="logo-brown.png" alt="" /></span>
         <span>
           <div class="brand-name">Adote uma Alma</div>
           <div class="brand-tag">Área Reservada</div>
@@ -1052,7 +1119,7 @@
     <aside class="admin-sidebar" aria-label="Navegação administrativa">
       <div class="brand">
         <span class="brand-logo" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.15);">
-          <img src="assets/logo-transparent.png" alt="" style="filter:brightness(0) invert(1);" />
+          <img src="logo-transparent.png" alt="" style="filter:brightness(0) invert(1);" />
         </span>
         <span>
           <div class="brand-name">Adote uma Alma</div>
@@ -1197,23 +1264,18 @@
         <label>Método de pagamento</label>
         <div class="pay-methods">
           <button type="button" class="pay-method selected" onclick="pickPay(this)">
-            <div class="pay-icon stripe">S</div>
-            <div class="pm-name">Stripe</div>
-          </button>
-          <button type="button" class="pay-method" onclick="pickPay(this)">
             <div class="pay-icon mbway">MB</div>
             <div class="pm-name">MB WAY</div>
           </button>
-          <button type="button" class="pay-method" onclick="pickPay(this)">
-            <div class="pay-icon paypal">P</div>
-            <div class="pm-name">PayPal</div>
-          </button>
+        </div>
+        <div style="margin-top:12px; padding:12px 16px; background:var(--cream-2); border-radius:10px; font-size:14px; color:var(--brown-deep);">
+          <strong>MB WAY:</strong> +351 965 012 201
         </div>
       </div>
 
       <div class="pay-note">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold-deep);"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-        <span>Pagamentos processados de forma segura. A integração real com Stripe, MB WAY e PayPal será ativada em produção.</span>
+        <span>Pagamentos processados de forma segura. A integração real com MB WAY será ativada em produção.</span>
       </div>
 
       <div style="display:flex; gap:10px; margin-top:22px;">
@@ -1291,20 +1353,47 @@
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ==================================================
+   COUNTDOWN TIMER — 24/07/2026 21:30 (Portugal Continental)
+   ================================================== */
+(function() {
+  const target = new Date('2026-07-24T21:30:00+01:00');
+  const dEl = document.getElementById('cd-days');
+  const hEl = document.getElementById('cd-hours');
+  const mEl = document.getElementById('cd-mins');
+  const sEl = document.getElementById('cd-secs');
+  function pad(n) { return String(n).padStart(2, '0'); }
+  function tick() {
+    const now = new Date();
+    let diff = Math.max(0, target - now);
+    const totalSec = Math.floor(diff / 1000);
+    const days = Math.floor(totalSec / 86400);
+    const hours = Math.floor((totalSec % 86400) / 3600);
+    const mins = Math.floor((totalSec % 3600) / 60);
+    const secs = totalSec % 60;
+    if (dEl) dEl.textContent = pad(days);
+    if (hEl) hEl.textContent = pad(hours);
+    if (mEl) mEl.textContent = pad(mins);
+    if (sEl) sEl.textContent = pad(secs);
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
+/* ==================================================
    DATA STORE (localStorage)
    ================================================== */
-const STORAGE_KEY = 'adote_uma_alma_v1';
+const STORAGE_KEY = 'adote_uma_alma_v2';
 const AUTH_KEY = 'adote_alma_auth';
 
 const seedSouls = [
-  { id:'s1', name:'Miguel', age:9, location:'Luanda, Angola', desc:'Miguel sonha em ser professor. Vive com a avó desde os 4 anos e precisa de apoio para continuar na escola.', goal:500, raised:325, status:'available' },
-  { id:'s2', name:'Sofia', age:24, location:'Maputo, Moçambique', desc:'Mãe solteira de dois filhos, à procura de estabilidade para reconstruir a sua vida com fé e coragem.', goal:800, raised:800, status:'adopted' },
-  { id:'s3', name:'Kayla', age:16, location:'Nairobi, Quénia', desc:'Órfã desde os 12 anos. Estuda de dia e trabalha à noite. Precisamos de a acompanhar até ao secundário.', goal:600, raised:210, status:'available' },
-  { id:'s4', name:'João', age:32, location:'Cabo Verde', desc:'Recuperou de um período difícil e agora deseja apoio para começar um pequeno negócio de pescas.', goal:750, raised:480, status:'available' },
-  { id:'s5', name:'Amara', age:7, location:'Lagos, Nigéria', desc:'A alegria em pessoa. Amara ainda não frequenta a escola formal — o apoio permitirá o seu primeiro ano.', goal:400, raised:400, status:'adopted' },
-  { id:'s6', name:'Elias', age:14, location:'São Tomé', desc:'Talentoso em música. Sonha aprender a tocar piano. Precisamos de contribuir para o seu instrumento e aulas.', goal:550, raised:120, status:'available' },
-  { id:'s7', name:'Naomi', age:19, location:'Porto, Portugal', desc:'Estudante universitária cuja família enfrenta dificuldades. O apadrinhamento cobre alimentação e transporte.', goal:600, raised:355, status:'available' },
-  { id:'s8', name:'Isaac', age:11, location:'Bissau, Guiné-Bissau', desc:'Apaixonado por leitura. Precisa de material escolar e um apoio contínuo para se manter na escola.', goal:450, raised:90, status:'available' },
+  { id:'s1', name:'Miguel', age:9, location:'Luanda, Angola', desc:'Miguel sonha em ser professor. Vive com a avó desde os 4 anos e precisa de apoio para continuar na escola.', goal:110, raised:0, status:'available' },
+  { id:'s2', name:'Sofia', age:24, location:'Maputo, Moçambique', desc:'Mãe solteira de dois filhos, à procura de estabilidade para reconstruir a sua vida com fé e coragem.', goal:110, raised:0, status:'available' },
+  { id:'s3', name:'Kayla', age:16, location:'Nairobi, Quénia', desc:'Órfã desde os 12 anos. Estuda de dia e trabalha à noite. Precisamos de a acompanhar até ao secundário.', goal:110, raised:0, status:'available' },
+  { id:'s4', name:'João', age:32, location:'Cabo Verde', desc:'Recuperou de um período difícil e agora deseja apoio para começar um pequeno negócio de pescas.', goal:110, raised:0, status:'available' },
+  { id:'s5', name:'Amara', age:7, location:'Lagos, Nigéria', desc:'A alegria em pessoa. Amara ainda não frequenta a escola formal — o apoio permitirá o seu primeiro ano.', goal:110, raised:0, status:'available' },
+  { id:'s6', name:'Elias', age:14, location:'São Tomé', desc:'Talentoso em música. Sonha aprender a tocar piano. Precisamos de contribuir para o seu instrumento e aulas.', goal:110, raised:0, status:'available' },
+  { id:'s7', name:'Naomi', age:19, location:'Porto, Portugal', desc:'Estudante universitária cuja família enfrenta dificuldades. O apadrinhamento cobre alimentação e transporte.', goal:110, raised:0, status:'available' },
+  { id:'s8', name:'Isaac', age:11, location:'Bissau, Guiné-Bissau', desc:'Apaixonado por leitura. Precisa de material escolar e um apoio contínuo para se manter na escola.', goal:110, raised:0, status:'available' },
 ];
 
 function loadSouls() {
