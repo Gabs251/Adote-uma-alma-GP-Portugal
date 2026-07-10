@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Adote uma Alma — Paternidade às Nações</title>
+<meta name="description" content="Adote uma Alma é um projeto de apadrinhamento espiritual da Igreja Internacional Geração Profética. Junte-se a nós e transforme vidas." />
+<meta name="theme-color" content="#F7F1E6" />
+<meta property="og:title" content="Adote uma Alma" />
+<meta property="og:description" content="Apadrinhe uma alma. Transforme uma vida." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ============ DESIGN TOKENS ============ */
+  :root {
+    /* Paleta clara: branco / bege / castanho / dourado / azul-escuro suave */
+    --cream: #FBF6EC;
+    --cream-2: #F5EDDD;
+    --sand: #EBDFC8;
+    --beige: #D9C6A5;
+    --gold: #C9A24B;
+    --gold-deep: #A17F2C;
+    --brown: #6B4423;
+    --brown-deep: #3E2812;
+    --ink: #241a10;
+    --midnight: #1F2C44;    /* azul-escuro suave como acento */
+    --midnight-2: #2E4166;
+
+    --muted: #8a7a63;
+    --line: rgba(107,68,35,0.14);
+    --line-strong: rgba(107,68,35,0.28);
+    --card: #FFFDF8;
+    --shadow-sm: 0 1px 2px rgba(62,40,18,0.05), 0 2px 6px rgba(62,40,18,0.04);
+    --shadow-md: 0 4px 10px rgba(62,40,18,0.06), 0 20px 40px -20px rgba(62,40,18,0.15);
+    --shadow-lg: 0 10px 30px -10px rgba(62,40,18,0.18), 0 30px 60px -30px rgba(62,40,18,0.25);
+
+    --radius-sm: 8px;
+    --radius: 14px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+
+    --serif: 'Fraunces', 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+
+    --container: 1200px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-image:
+      radial-gradient(1200px 600px at 15% -10%, rgba(201,162,75,0.08), transparent 60%),
+      radial-gradient(900px 500px at 100% 10%, rgba(31,44,68,0.05), transparent 60%);
+    background-attachment: fixed;
+  }
+  h1,h2,h3,h4 { font-family: var(--serif); font-weight: 500; letter-spacing: -0.01em; color: var(--brown-deep); margin: 0; }
+  p { margin: 0; }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 6px; }
+
+  /* ============ CONTAINER ============ */
+  .container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+
+  /* ============ HEADER ============ */
+  .site-header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(251,246,236,0.85);
+    backdrop-filter: saturate(140%) blur(12px);
+    -webkit-backdrop-filter: saturate(140%) blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .header-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 0;
+    gap: 24px;
+  }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand-logo {
+    width: 46px; height: 46px;
+    display: grid; place-items: center;
+    background: linear-gradient(160deg, var(--cream-2), var(--sand));
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+  .brand-logo img { width: 84%; height: 84%; object-fit: contain; }
+  .brand-name {
+    font-family: var(--serif);
+    font-size: 20px; font-weight: 600;
+    color: var(--brown-deep);
+    letter-spacing: 0.01em;
+    line-height: 1.05;
+  }
+  .brand-tag {
+    font-size: 11px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--muted);
+    margin-top: 2px;
+  }
+  .nav { display: flex; align-items: center; gap: 6px; }
+  .nav a {
+    padding: 10px 14px; border-radius: 999px;
+    font-size: 14px; font-weight: 500;
+    color: var(--brown);
+    transition: background .2s, color .2s;
+  }
+  .nav a:hover { background: var(--sand); color: var(--brown-deep); }
+  .nav a.active { background: var(--brown-deep); color: var(--cream); }
+  .btn-admin {
+    padding: 10px 16px; border-radius: 999px;
+    font-size: 13px; font-weight: 600;
+    background: transparent;
+    color: var(--midnight);
+    border: 1px solid var(--line-strong);
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: all .2s;
+  }
+  .btn-admin:hover { background: var(--midnight); color: var(--cream); border-color: var(--midnight); }
+
+  .menu-toggle { display: none; }
+
+  /* ============ HERO ============ */
+  .hero {
+    padding: 80px 0 60px;
+    position: relative;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 8px 14px; border-radius: 999px;
+    background: var(--cream-2);
+    border: 1px solid var(--line);
+    font-size: 12px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold-deep);
+    font-weight: 600;
+  }
+  .hero-eyebrow::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,162,75,0.2);
+  }
+  .hero h1 {
+    font-size: clamp(44px, 6.5vw, 84px);
+    line-height: 1.02;
+    margin-top: 22px;
+    max-width: 12ch;
+    letter-spacing: -0.025em;
+    font-weight: 400;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-deep);
+    font-weight: 500;
+  }
+  .hero-sub {
+    margin-top: 22px;
+    max-width: 58ch;
+    font-size: 19px;
+    color: var(--brown);
+    line-height: 1.55;
+  }
+  .hero-actions { margin-top: 34px; display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 15px 26px;
+    border-radius: 999px;
+    font-weight: 600; font-size: 15px;
+    transition: transform .15s, box-shadow .2s, background .2s;
+  }
+  .btn-primary {
+    background: var(--brown-deep);
+    color: var(--cream);
+    box-shadow: 0 8px 24px -12px rgba(62,40,18,0.6);
+  }
+  .btn-primary:hover { background: var(--ink); transform: translateY(-1px); box-shadow: 0 12px 30px -12px rgba(62,40,18,0.7); }
+  .btn-ghost {
+    background: transparent; color: var(--brown-deep);
+    border: 1px solid var(--line-strong);
+  }
+  .btn-ghost:hover { background: var(--cream-2); }
+  .btn-gold {
+    background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+    color: #fff;
+    box-shadow: 0 8px 20px -10px rgba(161,127,44,0.7);
+  }
+  .btn-gold:hover { transform: translateY(-1px); filter: brightness(1.05); }
+
+  /* Hero stats strip */
+  .hero-stats {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 26px 0;
+  }
+  .hero-stat { padding: 4px 20px; border-left: 1px solid var(--line); }
+  .hero-stat:first-child { border-left: none; padding-left: 0; }
+  .hero-stat .num {
+    font-family: var(--serif);
+    font-size: 34px; font-weight: 500;
+    color: var(--brown-deep);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .hero-stat .num .curr { font-size: 18px; color: var(--muted); margin-right: 2px; vertical-align: 6px; }
+  .hero-stat .lbl {
+    margin-top: 8px;
+    font-size: 12px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted);
+  }
+
+  /* ============ SECTION HEAD ============ */
+  .section { padding: 90px 0; }
+  .section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 40px; }
+  .section-head h2 {
+    font-size: clamp(32px, 4vw, 46px);
+    letter-spacing: -0.02em;
+    max-width: 20ch;
+    line-height: 1.05;
+  }
+  .section-head .hint { font-size: 14px; color: var(--muted); max-width: 32ch; }
+  .eyebrow-small {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold-deep); font-weight: 700; margin-bottom: 12px;
+  }
+
+  /* ============ FILTERS ============ */
+  .filters {
+    display: flex; align-items: center; gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+  .chip {
+    padding: 9px 16px; border-radius: 999px;
+    background: var(--card); border: 1px solid var(--line);
+    font-size: 13px; font-weight: 500; color: var(--brown);
+    transition: all .18s;
+  }
+  .chip:hover { border-color: var(--line-strong); }
+  .chip.active { background: var(--brown-deep); color: var(--cream); border-color: var(--brown-deep); }
+  .chip .count { opacity: 0.6; margin-left: 6px; font-weight: 400; }
+
+  /* ============ GRID ============ */
+  .souls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 22px;
+  }
+
+  .soul-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: transform .25s cubic-bezier(.2,.7,.3,1), box-shadow .25s, border-color .2s;
+    position: relative;
+  }
+  .soul-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--line-strong);
+  }
+  .soul-media {
+    position: relative;
+    aspect-ratio: 4/5;
+    background: linear-gradient(140deg, var(--sand), var(--beige));
+    overflow: hidden;
+  }
+  .soul-media::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(255,255,255,0.35), transparent 55%),
+      repeating-linear-gradient(45deg, rgba(107,68,35,0.05) 0 2px, transparent 2px 14px);
+  }
+  .soul-initial {
+    position: absolute; inset: 0;
+    display: grid; place-items: center;
+    font-family: var(--serif);
+    font-size: 92px; font-weight: 300;
+    color: rgba(62,40,18,0.35);
+    letter-spacing: -0.03em;
+  }
+  .soul-badge {
+    position: absolute; top: 14px; left: 14px;
+    padding: 6px 12px; border-radius: 999px;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    background: rgba(251,246,236,0.95);
+    color: var(--brown-deep);
+    backdrop-filter: blur(6px);
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .soul-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: #4CAF50; box-shadow: 0 0 0 3px rgba(76,175,80,0.2); }
+  .soul-badge.adopted .dot { background: var(--gold); box-shadow: 0 0 0 3px rgba(201,162,75,0.25); }
+  .soul-badge.adopted { color: var(--gold-deep); }
+
+  .soul-body {
+    padding: 22px;
+    display: flex; flex-direction: column; gap: 14px;
+    flex: 1;
+  }
+  .soul-name {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--brown-deep);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .soul-name .age { color: var(--muted); font-size: 16px; font-weight: 400; margin-left: 6px; }
+  .soul-desc {
+    font-size: 14px; color: var(--brown);
+    line-height: 1.55;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Progress */
+  .progress-block { margin-top: auto; }
+  .progress-meta {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 8px;
+  }
+  .progress-amount {
+    font-family: var(--serif);
+    font-size: 20px; font-weight: 600; color: var(--brown-deep);
+  }
+  .progress-amount .of { color: var(--muted); font-weight: 400; font-size: 14px; }
+  .progress-pct { font-size: 12px; color: var(--gold-deep); font-weight: 700; letter-spacing: 0.05em; }
+  .progress-bar {
+    height: 8px;
+    background: var(--sand);
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), var(--gold-deep));
+    border-radius: 999px;
+    transition: width .8s cubic-bezier(.2,.7,.3,1);
+    position: relative;
+  }
+  .progress-fill::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmer 2.5s infinite;
+  }
+  @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+
+  .soul-footer {
+    padding: 0 22px 22px;
+  }
+  .soul-cta {
+    width: 100%;
+    padding: 14px 20px;
+    background: var(--brown-deep); color: var(--cream);
+    border-radius: 12px;
+    font-weight: 600; font-size: 14px;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    transition: all .2s;
+  }
+  .soul-cta:hover { background: var(--ink); transform: translateY(-1px); }
+  .soul-cta.adopted-cta {
+    background: transparent; color: var(--gold-deep);
+    border: 1px solid var(--gold);
+    cursor: default;
+  }
+  .soul-cta.adopted-cta:hover { transform: none; }
+
+  /* ============ HOW IT WORKS ============ */
+  .how {
+    background: linear-gradient(180deg, var(--cream-2), var(--cream));
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .how-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+  .how-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    position: relative;
+  }
+  .how-num {
+    font-family: var(--serif);
+    font-size: 48px;
+    color: var(--gold);
+    line-height: 1;
+    font-weight: 300;
+    letter-spacing: -0.03em;
+  }
+  .how-card h3 {
+    font-size: 22px;
+    margin-top: 18px;
+    margin-bottom: 10px;
+  }
+  .how-card p {
+    font-size: 14.5px; color: var(--brown);
+  }
+
+  /* ============ PAYMENT PROVIDERS ============ */
+  .providers {
+    display: flex; align-items: center; gap: 18px;
+    flex-wrap: wrap; margin-top: 22px;
+    padding-top: 22px; border-top: 1px dashed var(--line-strong);
+  }
+  .providers-label {
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted); font-weight: 600;
+  }
+  .provider-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 14px; border-radius: 10px;
+    background: var(--card); border: 1px solid var(--line);
+    font-size: 13px; font-weight: 600; color: var(--brown-deep);
+  }
+  .provider-badge .p-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* ============ FOOTER ============ */
+  .site-footer {
+    background: linear-gradient(180deg, var(--brown-deep), var(--ink));
+    color: var(--cream);
+    padding: 80px 0 40px;
+    margin-top: 60px;
+  }
+  .footer-inspire {
+    max-width: 900px;
+    text-align: center;
+    margin: 0 auto 60px;
+  }
+  .footer-inspire h2 {
+    color: var(--cream);
+    font-size: clamp(30px, 4vw, 48px);
+    font-weight: 400;
+    line-height: 1.15;
+    font-style: italic;
+    font-family: var(--serif);
+  }
+  .footer-inspire h2 em { color: var(--gold); font-style: italic; }
+  .footer-inspire .cite {
+    margin-top: 22px;
+    font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--beige);
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .footer-brand { display: flex; gap: 14px; align-items: flex-start; }
+  .footer-brand .brand-logo {
+    background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15);
+  }
+  .footer-brand .brand-name { color: var(--cream); }
+  .footer-brand .brand-tag { color: var(--beige); }
+  .footer-desc { font-size: 14px; color: var(--beige); max-width: 40ch; margin-top: 14px; line-height: 1.6; }
+  .footer-col h4 {
+    color: var(--gold); font-family: var(--sans); font-size: 12px;
+    letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .footer-col a {
+    display: block; padding: 5px 0;
+    font-size: 14px; color: var(--beige);
+    transition: color .2s;
+  }
+  .footer-col a:hover { color: var(--gold); }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 50px; padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 12px; color: var(--beige);
+    letter-spacing: 0.05em;
+  }
+
+  /* ============ MODAL ============ */
+  .modal-backdrop {
+    position: fixed; inset: 0;
+    background: rgba(30, 20, 10, 0.55);
+    backdrop-filter: blur(6px);
+    display: none;
+    align-items: center; justify-content: center;
+    z-index: 100; padding: 20px;
+    animation: fadeIn .2s ease-out;
+  }
+  .modal-backdrop.open { display: flex; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .modal {
+    background: var(--cream);
+    border-radius: var(--radius-xl);
+    max-width: 520px; width: 100%;
+    max-height: 90vh; overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+    animation: slideUp .3s cubic-bezier(.2,.7,.3,1);
+  }
+  .modal-lg { max-width: 720px; }
+  .modal-head {
+    padding: 26px 28px 0;
+    display: flex; justify-content: space-between; align-items: flex-start;
+  }
+  .modal-body { padding: 20px 28px 28px; }
+  .modal h3 { font-size: 26px; letter-spacing: -0.01em; }
+  .modal-close {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--sand); color: var(--brown-deep);
+    display: grid; place-items: center;
+    font-size: 20px; transition: background .2s;
+  }
+  .modal-close:hover { background: var(--beige); }
+
+  /* Form */
+  .field { margin-bottom: 16px; }
+  .field label {
+    display: block; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 6px;
+  }
+  .field input, .field textarea, .field select {
+    width: 100%;
+    padding: 12px 14px;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 10px;
+    font-family: inherit; font-size: 15px; color: var(--ink);
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .field input:focus, .field textarea:focus, .field select:focus {
+    outline: none; border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,162,75,0.15);
+  }
+  .field textarea { min-height: 100px; resize: vertical; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  /* Payment picker */
+  .pay-methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .pay-method {
+    padding: 16px 12px; text-align: center;
+    background: var(--card); border: 1.5px solid var(--line);
+    border-radius: 12px; cursor: pointer;
+    transition: all .2s;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+  }
+  .pay-method:hover { border-color: var(--line-strong); }
+  .pay-method.selected { border-color: var(--gold); background: rgba(201,162,75,0.06); }
+  .pay-icon {
+    width: 36px; height: 36px; border-radius: 8px;
+    display: grid; place-items: center;
+    font-weight: 800; font-size: 12px; letter-spacing: 0.02em;
+  }
+  .pay-icon.stripe { background: #635BFF; color: #fff; }
+  .pay-icon.mbway { background: #ED2E38; color: #fff; }
+  .pay-icon.paypal { background: #003087; color: #fff; }
+  .pay-method .pm-name { font-size: 12px; font-weight: 600; color: var(--brown-deep); }
+  .pay-note {
+    margin-top: 10px; padding: 12px 14px;
+    background: var(--cream-2); border-radius: 10px;
+    font-size: 12px; color: var(--muted);
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .pay-note svg { flex-shrink: 0; }
+
+  .amount-suggest { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+  .amount-chip {
+    padding: 8px 14px; border-radius: 999px;
+    background: var(--card); border: 1px solid var(--line);
+    font-size: 13px; font-weight: 600; color: var(--brown-deep);
+    transition: all .18s;
+  }
+  .amount-chip:hover { border-color: var(--line-strong); }
+  .amount-chip.selected { background: var(--brown-deep); color: var(--cream); border-color: var(--brown-deep); }
+
+  /* ============ ADMIN VIEW ============ */
+  .view { display: none; }
+  .view.active { display: block; }
+
+  .admin-shell {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 100vh;
+    background: var(--cream);
+  }
+  .admin-sidebar {
+    background: var(--brown-deep);
+    color: var(--cream);
+    padding: 28px 20px;
+    position: sticky; top: 0; height: 100vh;
+  }
+  .admin-sidebar .brand-name { color: var(--cream); }
+  .admin-sidebar .brand-tag { color: var(--beige); }
+  .admin-nav { margin-top: 40px; display: flex; flex-direction: column; gap: 4px; }
+  .admin-nav a {
+    padding: 11px 14px; border-radius: 10px;
+    display: flex; align-items: center; gap: 12px;
+    font-size: 14px; font-weight: 500; color: var(--beige);
+    transition: background .18s, color .18s;
+  }
+  .admin-nav a:hover { background: rgba(255,255,255,0.06); color: var(--cream); }
+  .admin-nav a.active { background: rgba(201,162,75,0.18); color: var(--gold); }
+  .admin-sidebar-foot {
+    position: absolute; bottom: 24px; left: 20px; right: 20px;
+    padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 13px;
+  }
+  .admin-sidebar-foot button {
+    color: var(--gold); font-weight: 600; font-size: 13px;
+  }
+
+  .admin-main { padding: 40px 44px; }
+  .admin-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; }
+  .admin-head h1 { font-size: 34px; letter-spacing: -0.02em; }
+  .admin-head .sub { color: var(--muted); font-size: 14px; margin-top: 4px; }
+
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 40px; }
+  .stat-card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 22px;
+    position: relative; overflow: hidden;
+  }
+  .stat-card::after {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--gold);
+  }
+  .stat-card.accent-blue::after { background: var(--midnight); }
+  .stat-card.accent-green::after { background: #4CAF50; }
+  .stat-card.accent-brown::after { background: var(--brown); }
+  .stat-label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .stat-value {
+    font-family: var(--serif); font-size: 36px; font-weight: 500;
+    color: var(--brown-deep); margin-top: 8px; letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .stat-value .curr { font-size: 18px; color: var(--muted); margin-right: 2px; vertical-align: 6px; }
+  .stat-trend { font-size: 12px; color: var(--muted); margin-top: 8px; display: inline-flex; align-items: center; gap: 4px; }
+  .stat-trend.up { color: #4CAF50; }
+
+  /* Admin table */
+  .admin-panel {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius-lg); overflow: hidden;
+  }
+  .panel-head {
+    padding: 20px 24px; display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid var(--line);
+  }
+  .panel-head h3 { font-size: 20px; }
+  .panel-tools { display: flex; gap: 10px; align-items: center; }
+  .search-input {
+    padding: 9px 14px 9px 36px;
+    background: var(--cream-2); border: 1px solid var(--line);
+    border-radius: 999px;
+    font-family: inherit; font-size: 13px;
+    width: 240px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B4423' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 12px center;
+  }
+  .search-input:focus { outline: none; border-color: var(--gold); }
+
+  .admin-table { width: 100%; border-collapse: collapse; }
+  .admin-table th {
+    text-align: left; padding: 14px 24px;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); font-weight: 600;
+    background: var(--cream-2);
+    border-bottom: 1px solid var(--line);
+  }
+  .admin-table td { padding: 16px 24px; border-bottom: 1px solid var(--line); font-size: 14px; vertical-align: middle; }
+  .admin-table tr:last-child td { border-bottom: none; }
+  .admin-table tr:hover td { background: rgba(235,223,200,0.25); }
+  .row-name { font-weight: 600; color: var(--brown-deep); font-family: var(--serif); font-size: 16px; }
+  .row-desc { color: var(--muted); font-size: 13px; margin-top: 2px; max-width: 320px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .status-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 10px; border-radius: 999px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .status-pill.available { background: rgba(76,175,80,0.12); color: #2E7D32; }
+  .status-pill.adopted { background: rgba(201,162,75,0.15); color: var(--gold-deep); }
+  .status-pill .dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+  .mini-progress {
+    width: 100px; height: 6px; background: var(--sand); border-radius: 999px; overflow: hidden;
+    display: inline-block; vertical-align: middle; margin-right: 8px;
+  }
+  .mini-progress > div { height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-deep)); border-radius: 999px; }
+  .row-actions { display: flex; gap: 4px; justify-content: flex-end; }
+  .icon-btn {
+    width: 34px; height: 34px; border-radius: 8px;
+    display: grid; place-items: center;
+    color: var(--brown); background: transparent;
+    transition: all .18s;
+  }
+  .icon-btn:hover { background: var(--sand); color: var(--brown-deep); }
+  .icon-btn.danger:hover { background: rgba(231,76,60,0.12); color: #c0392b; }
+  .icon-btn.gold:hover { background: rgba(201,162,75,0.15); color: var(--gold-deep); }
+
+  /* ============ LOGIN ============ */
+  .login-shell {
+    min-height: 100vh; display: grid; place-items: center;
+    padding: 40px 20px;
+    background:
+      radial-gradient(800px 500px at 20% 10%, rgba(201,162,75,0.12), transparent 60%),
+      radial-gradient(600px 400px at 90% 90%, rgba(31,44,68,0.08), transparent 60%),
+      var(--cream);
+  }
+  .login-card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    padding: 44px 40px;
+    max-width: 440px; width: 100%;
+    box-shadow: var(--shadow-lg);
+  }
+  .login-card .brand { justify-content: center; margin-bottom: 24px; }
+  .login-card h2 { font-size: 30px; text-align: center; margin-bottom: 8px; letter-spacing: -0.02em; }
+  .login-card .lead { text-align: center; color: var(--muted); font-size: 14px; margin-bottom: 30px; }
+  .login-back {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 20px; font-size: 13px; color: var(--muted);
+    justify-content: center; width: 100%;
+  }
+  .login-back:hover { color: var(--brown-deep); }
+  .login-hint {
+    background: var(--cream-2); border-radius: 10px;
+    padding: 12px 14px; font-size: 12px; color: var(--muted);
+    margin-top: 18px; text-align: center;
+    border: 1px dashed var(--line-strong);
+  }
+  .login-hint code { background: var(--sand); padding: 2px 6px; border-radius: 4px; font-family: 'SF Mono', Menlo, monospace; color: var(--brown-deep); }
+  .login-error {
+    background: rgba(231,76,60,0.08); color: #c0392b;
+    border: 1px solid rgba(231,76,60,0.2);
+    border-radius: 10px; padding: 10px 14px;
+    font-size: 13px; margin-bottom: 16px;
+    display: none;
+  }
+  .login-error.show { display: block; }
+
+  /* ============ TOASTS ============ */
+  .toast-region { position: fixed; bottom: 24px; right: 24px; z-index: 200; display: flex; flex-direction: column; gap: 10px; }
+  .toast {
+    background: var(--brown-deep); color: var(--cream);
+    padding: 14px 18px; border-radius: 12px;
+    font-size: 14px; font-weight: 500;
+    box-shadow: var(--shadow-lg);
+    display: flex; align-items: center; gap: 10px;
+    animation: slideIn .3s cubic-bezier(.2,.7,.3,1);
+    max-width: 360px;
+  }
+  .toast.success { background: #2E7D32; }
+  .toast.error { background: #c0392b; }
+  @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 900px) {
+    .hero { padding: 50px 0 40px; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .hero-stat { border-left: none; padding: 10px 0; border-top: 1px solid var(--line); }
+    .hero-stat:nth-child(-n+2) { border-top: none; }
+    .how-grid { grid-template-columns: 1fr; }
+    .section { padding: 60px 0; }
+    .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+    .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+
+    .nav { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; padding: 12px; gap: 4px; background: var(--cream); border-bottom: 1px solid var(--line); box-shadow: var(--shadow-md); }
+    .nav.open { display: flex; }
+    .nav a, .nav .btn-admin { width: 100%; justify-content: flex-start; }
+    .menu-toggle { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 10px; background: var(--cream-2); border: 1px solid var(--line); }
+
+    .admin-shell { grid-template-columns: 1fr; }
+    .admin-sidebar { position: static; height: auto; padding: 20px; }
+    .admin-sidebar-foot { position: static; margin-top: 20px; }
+    .admin-main { padding: 24px 20px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .admin-table { font-size: 13px; }
+    .admin-table th, .admin-table td { padding: 12px; }
+    .row-desc { max-width: 160px; }
+    .search-input { width: 100%; }
+    .panel-head { flex-direction: column; align-items: stretch; gap: 12px; }
+  }
+  @media (max-width: 520px) {
+    .stats-grid { grid-template-columns: 1fr; }
+    .pay-methods { grid-template-columns: 1fr; }
+    .field-row { grid-template-columns: 1fr; }
+    .section-head { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* Screen reader only */
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+</style>
+</head>
+<body>
+
+<!-- ============ PUBLIC HOMEPAGE ============ -->
+<div id="view-home" class="view active">
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="Adote uma Alma — Início">
+        <span class="brand-logo"><img src="assets/logo-brown.png" alt="" /></span>
+        <span>
+          <div class="brand-name">Adote uma Alma</div>
+          <div class="brand-tag">Paternidade às Nações</div>
+        </span>
+      </a>
+      <button class="menu-toggle" aria-label="Menu" onclick="toggleMenu()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <nav class="nav" id="mainNav" aria-label="Navegação principal">
+        <a href="#almas">Almas</a>
+        <a href="#como-funciona">Como Funciona</a>
+        <a href="#missao">Missão</a>
+        <button class="btn-admin" onclick="showView('login')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Área Reservada
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero container" aria-labelledby="hero-title">
+      <span class="hero-eyebrow">Projeto de Apadrinhamento Espiritual</span>
+      <h1 id="hero-title">Adote uma alma, <em>transforme</em> uma vida.</h1>
+      <p class="hero-sub">
+        Cada nome é uma história. Cada história é uma jornada. Ao apadrinhar uma alma, contribui em oração,
+        recursos e amor para que ninguém percorra este caminho sozinho.
+      </p>
+      <div class="hero-actions">
+        <a href="#almas" class="btn btn-primary">
+          Ver Almas Disponíveis
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#como-funciona" class="btn btn-ghost">Como funciona</a>
+      </div>
+
+      <div class="hero-stats" role="list">
+        <div class="hero-stat" role="listitem">
+          <div class="num" id="stat-total">—</div>
+          <div class="lbl">Almas no Projeto</div>
+        </div>
+        <div class="hero-stat" role="listitem">
+          <div class="num" id="stat-adopted">—</div>
+          <div class="lbl">Já Adotadas</div>
+        </div>
+        <div class="hero-stat" role="listitem">
+          <div class="num"><span class="curr">€</span><span id="stat-raised">—</span></div>
+          <div class="lbl">Arrecadado</div>
+        </div>
+        <div class="hero-stat" role="listitem">
+          <div class="num" id="stat-nations">3</div>
+          <div class="lbl">Nações Alcançadas</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOULS GRID -->
+    <section class="section container" id="almas" aria-labelledby="almas-title">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow-small">A Nossa Missão em Nomes</div>
+          <h2 id="almas-title">Cada alma tem<br />um nome, um rosto,<br />uma esperança.</h2>
+        </div>
+        <p class="hint">Escolha uma alma para apadrinhar. Acompanhe o progresso e receba testemunhos ao longo da jornada.</p>
+      </div>
+
+      <div class="filters" role="tablist" aria-label="Filtrar almas">
+        <button class="chip active" data-filter="all" role="tab" aria-selected="true">Todas <span class="count" id="cnt-all">0</span></button>
+        <button class="chip" data-filter="available" role="tab" aria-selected="false">Disponíveis <span class="count" id="cnt-available">0</span></button>
+        <button class="chip" data-filter="adopted" role="tab" aria-selected="false">Adotadas <span class="count" id="cnt-adopted">0</span></button>
+      </div>
+
+      <div class="souls-grid" id="soulsGrid" aria-live="polite"></div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how" id="como-funciona" aria-labelledby="how-title">
+      <div class="container section" style="padding-top:0; padding-bottom:0; padding: 90px 0;">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow-small">Simples & Transparente</div>
+            <h2 id="how-title">Três passos<br />para semear amor.</h2>
+          </div>
+          <p class="hint">Um processo claro, seguro e cheio de sentido — desde a escolha até ao testemunho final.</p>
+        </div>
+        <div class="how-grid">
+          <article class="how-card">
+            <div class="how-num">01</div>
+            <h3>Escolha uma alma</h3>
+            <p>Explore os cartões abaixo, leia a história de cada alma e escolha aquela cuja jornada toca o seu coração.</p>
+          </article>
+          <article class="how-card">
+            <div class="how-num">02</div>
+            <h3>Contribua com amor</h3>
+            <p>Faça a sua contribuição através de Stripe, MB WAY ou PayPal. Cada valor conta — pequeno ou grande.</p>
+          </article>
+          <article class="how-card">
+            <div class="how-num">03</div>
+            <h3>Acompanhe o milagre</h3>
+            <p>Receba atualizações sobre a alma que apadrinhou e testemunhe a transformação em tempo real.</p>
+          </article>
+        </div>
+
+        <div class="providers">
+          <span class="providers-label">Métodos de pagamento seguros</span>
+          <span class="provider-badge"><span class="p-dot" style="background:#635BFF"></span>Stripe</span>
+          <span class="provider-badge"><span class="p-dot" style="background:#ED2E38"></span>MB WAY</span>
+          <span class="provider-badge"><span class="p-dot" style="background:#003087"></span>PayPal</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISSION -->
+    <section class="section container" id="missao" aria-labelledby="mission-title">
+      <div class="section-head" style="align-items:center;">
+        <div style="max-width:680px;">
+          <div class="eyebrow-small">A Nossa Missão</div>
+          <h2 id="mission-title" style="max-width:none;">Levamos paternidade<br />às nações — <em style="color:var(--gold-deep);font-style:italic;">uma alma de cada vez.</em></h2>
+          <p style="margin-top:22px; color:var(--brown); font-size:17px; max-width:60ch; line-height:1.6;">
+            Somos a Igreja Internacional Geração Profética. O projeto <strong>Adote uma Alma</strong> nasce
+            do desejo profundo de que nenhuma pessoa seja esquecida. Através da oração intercessora,
+            do cuidado material e do acompanhamento espiritual, transformamos histórias — uma a uma.
+          </p>
+          <div style="margin-top:28px; display:flex; gap:14px; flex-wrap:wrap;">
+            <a href="#almas" class="btn btn-gold">Apadrinhar agora</a>
+            <a href="/cdn-cgi/l/email-protection#5f3c30312b3e3c2b301f3e3b302b3a2a323e3e33323e712f2b" class="btn btn-ghost">Falar connosco</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inspire">
+        <h2>"Aquele que salva uma alma, <em>salva um mundo inteiro.</em>"</h2>
+        <div class="cite">— A força de um só coração muda gerações</div>
+      </div>
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand brand">
+            <span class="brand-logo" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.15);">
+              <img src="assets/logo-transparent.png" alt="" style="filter:brightness(0) invert(1);" />
+            </span>
+            <span>
+              <div class="brand-name">Adote uma Alma</div>
+              <div class="brand-tag">Paternidade às Nações</div>
+            </span>
+          </div>
+          <p class="footer-desc">
+            Um projeto da Igreja Internacional Geração Profética. Cada contribuição é destinada
+            integralmente ao cuidado espiritual e material das almas apadrinhadas.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Navegar</h4>
+          <a href="#almas">Almas</a>
+          <a href="#como-funciona">Como funciona</a>
+          <a href="#missao">Missão</a>
+          <a href="#" onclick="showView('login'); return false;">Área Reservada</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <a href="/cdn-cgi/l/email-protection#bfdcd0d1cbdedccbd0ffdedbd0cbdacad2deded3d2de91cfcb"><span class="__cf_email__" data-cfemail="2c4f4342584d4f58436c4d4843584959414d4d40414d025c58">[email&#160;protected]</span></a>
+          <a href="tel:+351000000000">+351 000 000 000</a>
+          <a href="#">Instagram</a>
+          <a href="#">YouTube</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Adote uma Alma. Todos os direitos reservados.</div>
+        <div>Feito com fé, para as nações.</div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ============ LOGIN VIEW ============ -->
+<div id="view-login" class="view">
+  <div class="login-shell">
+    <div class="login-card">
+      <div class="brand">
+        <span class="brand-logo"><img src="assets/logo-brown.png" alt="" /></span>
+        <span>
+          <div class="brand-name">Adote uma Alma</div>
+          <div class="brand-tag">Área Reservada</div>
+        </span>
+      </div>
+      <h2>Iniciar sessão</h2>
+      <p class="lead">Acesso restrito a administradores do projeto.</p>
+
+      <div class="login-error" id="loginError">Credenciais inválidas. Tente novamente.</div>
+
+      <form onsubmit="handleLogin(event)">
+        <div class="field">
+          <label for="loginUser">Utilizador</label>
+          <input id="loginUser" type="text" autocomplete="username" required />
+        </div>
+        <div class="field">
+          <label for="loginPass">Palavra-passe</label>
+          <input id="loginPass" type="password" autocomplete="current-password" required />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">
+          Entrar
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+
+      <div class="login-hint">
+        Demo: <code>admin</code> / <code>admin</code>
+      </div>
+
+      <a href="#" class="login-back" onclick="showView('home'); return false;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Voltar ao site
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ADMIN VIEW ============ -->
+<div id="view-admin" class="view">
+  <div class="admin-shell">
+    <aside class="admin-sidebar" aria-label="Navegação administrativa">
+      <div class="brand">
+        <span class="brand-logo" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.15);">
+          <img src="assets/logo-transparent.png" alt="" style="filter:brightness(0) invert(1);" />
+        </span>
+        <span>
+          <div class="brand-name">Adote uma Alma</div>
+          <div class="brand-tag">Administração</div>
+        </span>
+      </div>
+      <nav class="admin-nav">
+        <a href="#" class="active">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Painel geral
+        </a>
+        <a href="#" onclick="openSoulModal(); return false;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          Nova alma
+        </a>
+        <a href="#" onclick="return false;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Testemunhos
+        </a>
+        <a href="#" onclick="return false;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 22v-6M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M2 12h6M22 12h-6M4.93 19.07l4.24-4.24M14.83 9.17l4.24-4.24"/></svg>
+          Pagamentos
+        </a>
+        <a href="#" onclick="return false;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          Definições
+        </a>
+      </nav>
+      <div class="admin-sidebar-foot">
+        <span>Sessão: <strong>admin</strong></span>
+        <button onclick="handleLogout()">Sair</button>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <div class="admin-head">
+        <div>
+          <h1>Painel geral</h1>
+          <div class="sub">Bem-vindo. Aqui pode gerir todas as almas do projeto.</div>
+        </div>
+        <button class="btn btn-primary" onclick="openSoulModal()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Adicionar alma
+        </button>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Almas Totais</div>
+          <div class="stat-value" id="admStatTotal">0</div>
+          <div class="stat-trend up">▲ ativas no projeto</div>
+        </div>
+        <div class="stat-card accent-green">
+          <div class="stat-label">Adotadas</div>
+          <div class="stat-value" id="admStatAdopted">0</div>
+          <div class="stat-trend" id="admStatAdoptedPct">— do total</div>
+        </div>
+        <div class="stat-card accent-brown">
+          <div class="stat-label">Disponíveis</div>
+          <div class="stat-value" id="admStatAvail">0</div>
+          <div class="stat-trend">à espera de padrinho</div>
+        </div>
+        <div class="stat-card accent-blue">
+          <div class="stat-label">Arrecadado</div>
+          <div class="stat-value"><span class="curr">€</span><span id="admStatRaised">0</span></div>
+          <div class="stat-trend" id="admStatGoal">— da meta global</div>
+        </div>
+      </div>
+
+      <div class="admin-panel">
+        <div class="panel-head">
+          <div>
+            <h3>Almas do projeto</h3>
+            <div class="sub" style="font-size:13px;color:var(--muted);margin-top:2px;">Gerir, editar, marcar como adotadas.</div>
+          </div>
+          <div class="panel-tools">
+            <input type="search" class="search-input" placeholder="Pesquisar alma..." id="admSearch" oninput="renderAdmin()" />
+          </div>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="admin-table" role="table">
+            <thead>
+              <tr>
+                <th>Alma</th>
+                <th>Estado</th>
+                <th>Progresso</th>
+                <th>Meta</th>
+                <th style="text-align:right;">Ações</th>
+              </tr>
+            </thead>
+            <tbody id="admBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- ============ ADOPT MODAL ============ -->
+<div class="modal-backdrop" id="adoptModal" role="dialog" aria-modal="true" aria-labelledby="adoptTitle" onclick="if(event.target===this) closeModal('adoptModal')">
+  <div class="modal">
+    <div class="modal-head">
+      <div>
+        <div class="eyebrow-small" style="margin-bottom:6px;">Apadrinhamento</div>
+        <h3 id="adoptTitle">Adotar esta alma</h3>
+      </div>
+      <button class="modal-close" onclick="closeModal('adoptModal')" aria-label="Fechar">×</button>
+    </div>
+    <div class="modal-body">
+      <div id="adoptSoulInfo" style="padding:14px; background:var(--cream-2); border-radius:12px; margin-bottom:20px; display:flex; align-items:center; gap:14px;">
+        <div id="adoptInitial" style="width:52px;height:52px;border-radius:12px;background:linear-gradient(140deg,var(--sand),var(--beige));display:grid;place-items:center;font-family:var(--serif);font-size:24px;color:var(--brown-deep);"></div>
+        <div>
+          <div id="adoptName" style="font-family:var(--serif);font-size:20px;color:var(--brown-deep);font-weight:600;"></div>
+          <div id="adoptRemaining" style="font-size:13px;color:var(--muted);margin-top:2px;"></div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Valor da contribuição (€)</label>
+        <div class="amount-suggest">
+          <button type="button" class="amount-chip" onclick="setAmount(10)">€10</button>
+          <button type="button" class="amount-chip" onclick="setAmount(25)">€25</button>
+          <button type="button" class="amount-chip selected" onclick="setAmount(50)">€50</button>
+          <button type="button" class="amount-chip" onclick="setAmount(100)">€100</button>
+          <button type="button" class="amount-chip" onclick="setAmount(250)">€250</button>
+        </div>
+        <input type="number" id="adoptAmount" value="50" min="1" step="1" />
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>O seu nome</label>
+          <input type="text" placeholder="Nome completo" />
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input type="email" placeholder="seuemail@exemplo.pt" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Método de pagamento</label>
+        <div class="pay-methods">
+          <button type="button" class="pay-method selected" onclick="pickPay(this)">
+            <div class="pay-icon stripe">S</div>
+            <div class="pm-name">Stripe</div>
+          </button>
+          <button type="button" class="pay-method" onclick="pickPay(this)">
+            <div class="pay-icon mbway">MB</div>
+            <div class="pm-name">MB WAY</div>
+          </button>
+          <button type="button" class="pay-method" onclick="pickPay(this)">
+            <div class="pay-icon paypal">P</div>
+            <div class="pm-name">PayPal</div>
+          </button>
+        </div>
+      </div>
+
+      <div class="pay-note">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold-deep);"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <span>Pagamentos processados de forma segura. A integração real com Stripe, MB WAY e PayPal será ativada em produção.</span>
+      </div>
+
+      <div style="display:flex; gap:10px; margin-top:22px;">
+        <button class="btn btn-ghost" style="flex:1;" onclick="closeModal('adoptModal')">Cancelar</button>
+        <button class="btn btn-gold" style="flex:2;" onclick="confirmAdopt()">
+          Confirmar contribuição
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SOUL FORM MODAL ============ -->
+<div class="modal-backdrop" id="soulModal" role="dialog" aria-modal="true" aria-labelledby="soulModalTitle" onclick="if(event.target===this) closeModal('soulModal')">
+  <div class="modal modal-lg">
+    <div class="modal-head">
+      <div>
+        <div class="eyebrow-small" style="margin-bottom:6px;">Gestão</div>
+        <h3 id="soulModalTitle">Nova alma</h3>
+      </div>
+      <button class="modal-close" onclick="closeModal('soulModal')" aria-label="Fechar">×</button>
+    </div>
+    <div class="modal-body">
+      <form onsubmit="saveSoul(event)">
+        <div class="field-row">
+          <div class="field">
+            <label>Nome</label>
+            <input type="text" id="fName" required />
+          </div>
+          <div class="field">
+            <label>Idade</label>
+            <input type="number" id="fAge" min="0" max="120" />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Localização</label>
+            <input type="text" id="fLocation" placeholder="ex. Luanda, Angola" />
+          </div>
+          <div class="field">
+            <label>Meta de arrecadação (€)</label>
+            <input type="number" id="fGoal" min="1" value="500" required />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Valor já arrecadado (€)</label>
+            <input type="number" id="fRaised" min="0" value="0" />
+          </div>
+          <div class="field">
+            <label>Estado</label>
+            <select id="fStatus">
+              <option value="available">Disponível</option>
+              <option value="adopted">Adotada</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Descrição / história</label>
+          <textarea id="fDesc" placeholder="Uma breve história desta alma..."></textarea>
+        </div>
+        <input type="hidden" id="fId" />
+        <div style="display:flex; gap:10px; margin-top:10px;">
+          <button type="button" class="btn btn-ghost" style="flex:1;" onclick="closeModal('soulModal')">Cancelar</button>
+          <button type="submit" class="btn btn-primary" style="flex:2;">Guardar alma</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Toast region -->
+<div class="toast-region" id="toasts" role="status" aria-live="polite"></div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ==================================================
+   DATA STORE (localStorage)
+   ================================================== */
+const STORAGE_KEY = 'adote_uma_alma_v1';
+const AUTH_KEY = 'adote_alma_auth';
+
+const seedSouls = [
+  { id:'s1', name:'Miguel', age:9, location:'Luanda, Angola', desc:'Miguel sonha em ser professor. Vive com a avó desde os 4 anos e precisa de apoio para continuar na escola.', goal:500, raised:325, status:'available' },
+  { id:'s2', name:'Sofia', age:24, location:'Maputo, Moçambique', desc:'Mãe solteira de dois filhos, à procura de estabilidade para reconstruir a sua vida com fé e coragem.', goal:800, raised:800, status:'adopted' },
+  { id:'s3', name:'Kayla', age:16, location:'Nairobi, Quénia', desc:'Órfã desde os 12 anos. Estuda de dia e trabalha à noite. Precisamos de a acompanhar até ao secundário.', goal:600, raised:210, status:'available' },
+  { id:'s4', name:'João', age:32, location:'Cabo Verde', desc:'Recuperou de um período difícil e agora deseja apoio para começar um pequeno negócio de pescas.', goal:750, raised:480, status:'available' },
+  { id:'s5', name:'Amara', age:7, location:'Lagos, Nigéria', desc:'A alegria em pessoa. Amara ainda não frequenta a escola formal — o apoio permitirá o seu primeiro ano.', goal:400, raised:400, status:'adopted' },
+  { id:'s6', name:'Elias', age:14, location:'São Tomé', desc:'Talentoso em música. Sonha aprender a tocar piano. Precisamos de contribuir para o seu instrumento e aulas.', goal:550, raised:120, status:'available' },
+  { id:'s7', name:'Naomi', age:19, location:'Porto, Portugal', desc:'Estudante universitária cuja família enfrenta dificuldades. O apadrinhamento cobre alimentação e transporte.', goal:600, raised:355, status:'available' },
+  { id:'s8', name:'Isaac', age:11, location:'Bissau, Guiné-Bissau', desc:'Apaixonado por leitura. Precisa de material escolar e um apoio contínuo para se manter na escola.', goal:450, raised:90, status:'available' },
+];
+
+function loadSouls() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch(e){}
+  return [...seedSouls];
+}
+function saveSouls(list) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+}
+let SOULS = loadSouls();
+let currentFilter = 'all';
+let currentAdoptId = null;
+let editingId = null;
+
+/* ==================================================
+   VIEW SWITCHING
+   ================================================== */
+function showView(name) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  const map = { home:'view-home', login:'view-login', admin:'view-admin' };
+  const el = document.getElementById(map[name]);
+  if (el) el.classList.add('active');
+  window.scrollTo(0,0);
+  // close mobile menu
+  document.getElementById('mainNav')?.classList.remove('open');
+  if (name === 'admin') renderAdmin();
+  if (name === 'home') renderSouls();
+}
+
+function toggleMenu(){
+  document.getElementById('mainNav').classList.toggle('open');
+}
+
+/* ==================================================
+   AUTH
+   ================================================== */
+function handleLogin(e) {
+  e.preventDefault();
+  const u = document.getElementById('loginUser').value.trim();
+  const p = document.getElementById('loginPass').value;
+  const err = document.getElementById('loginError');
+  if (u === 'admin' && p === 'admin') {
+    sessionStorage.setItem(AUTH_KEY, '1');
+    err.classList.remove('show');
+    showView('admin');
+    toast('Sessão iniciada. Bem-vindo.', 'success');
+  } else {
+    err.classList.add('show');
+  }
+}
+function handleLogout() {
+  sessionStorage.removeItem(AUTH_KEY);
+  showView('home');
+  toast('Sessão terminada.', '');
+}
+function isAuthed() { return sessionStorage.getItem(AUTH_KEY) === '1'; }
+
+/* ==================================================
+   PUBLIC GRID
+   ================================================== */
+function fmtEur(n) {
+  return new Intl.NumberFormat('pt-PT', { maximumFractionDigits: 0 }).format(n);
+}
+
+function renderStats() {
+  const total = SOULS.length;
+  const adopted = SOULS.filter(s => s.status === 'adopted').length;
+  const raised = SOULS.reduce((a,s)=>a+s.raised, 0);
+  document.getElementById('stat-total').textContent = total;
+  document.getElementById('stat-adopted').textContent = adopted;
+  document.getElementById('stat-raised').textContent = fmtEur(raised);
+  document.getElementById('cnt-all').textContent = total;
+  document.getElementById('cnt-available').textContent = SOULS.filter(s=>s.status==='available').length;
+  document.getElementById('cnt-adopted').textContent = adopted;
+}
+
+function renderSouls() {
+  const grid = document.getElementById('soulsGrid');
+  const filtered = SOULS.filter(s => currentFilter === 'all' ? true : s.status === currentFilter);
+  grid.innerHTML = filtered.map(s => soulCard(s)).join('');
+  renderStats();
+}
+
+function soulCard(s) {
+  const pct = Math.min(100, Math.round((s.raised / s.goal) * 100));
+  const adopted = s.status === 'adopted';
+  return `
+    <article class="soul-card" aria-label="Alma: ${s.name}">
+      <div class="soul-media">
+        <div class="soul-initial">${(s.name || '?').charAt(0)}</div>
+        <div class="soul-badge ${adopted ? 'adopted' : ''}">
+          <span class="dot"></span>
+          ${adopted ? 'Adotada' : 'Disponível'}
+        </div>
+      </div>
+      <div class="soul-body">
+        <div>
+          <h3 class="soul-name">${escapeHtml(s.name)}${s.age ? `<span class="age">, ${s.age}</span>` : ''}</h3>
+          ${s.location ? `<div style="font-size:12px;color:var(--muted);margin-top:4px;letter-spacing:0.04em;">📍 ${escapeHtml(s.location)}</div>` : ''}
+        </div>
+        <p class="soul-desc">${escapeHtml(s.desc || '')}</p>
+        <div class="progress-block">
+          <div class="progress-meta">
+            <div class="progress-amount">€${fmtEur(s.raised)}<span class="of"> / €${fmtEur(s.goal)}</span></div>
+            <div class="progress-pct">${pct}%</div>
+          </div>
+          <div class="progress-bar" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-fill" style="width:${pct}%"></div>
+          </div>
+        </div>
+      </div>
+      <div class="soul-footer">
+        ${adopted
+          ? `<button class="soul-cta adopted-cta" disabled aria-disabled="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              Já apadrinhada — obrigado
+            </button>`
+          : `<button class="soul-cta" onclick="openAdopt('${s.id}')">
+              Adotar esta alma
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </button>`}
+      </div>
+    </article>
+  `;
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+// Filter chips
+document.querySelectorAll('.chip[data-filter]').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.chip[data-filter]').forEach(c => { c.classList.remove('active'); c.setAttribute('aria-selected','false'); });
+    chip.classList.add('active');
+    chip.setAttribute('aria-selected','true');
+    currentFilter = chip.dataset.filter;
+    renderSouls();
+  });
+});
+
+/* ==================================================
+   ADOPT MODAL
+   ================================================== */
+function openAdopt(id) {
+  const s = SOULS.find(x => x.id === id);
+  if (!s) return;
+  currentAdoptId = id;
+  document.getElementById('adoptName').textContent = s.name;
+  document.getElementById('adoptInitial').textContent = s.name.charAt(0);
+  const remaining = Math.max(0, s.goal - s.raised);
+  document.getElementById('adoptRemaining').textContent = `Falta arrecadar €${fmtEur(remaining)} de €${fmtEur(s.goal)}`;
+  document.getElementById('adoptModal').classList.add('open');
+}
+function setAmount(v) {
+  document.getElementById('adoptAmount').value = v;
+  document.querySelectorAll('#adoptModal .amount-chip').forEach(c=>c.classList.remove('selected'));
+  event.target.classList.add('selected');
+}
+function pickPay(el) {
+  el.parentElement.querySelectorAll('.pay-method').forEach(p=>p.classList.remove('selected'));
+  el.classList.add('selected');
+}
+function confirmAdopt() {
+  const amt = parseFloat(document.getElementById('adoptAmount').value) || 0;
+  if (amt <= 0) return toast('Introduza um valor válido.', 'error');
+  const s = SOULS.find(x=>x.id===currentAdoptId);
+  if (!s) return;
+  s.raised = Math.min(s.goal, s.raised + amt);
+  if (s.raised >= s.goal) s.status = 'adopted';
+  saveSouls(SOULS);
+  closeModal('adoptModal');
+  renderSouls();
+  toast(`Obrigado! Contribuiu com €${fmtEur(amt)} para ${s.name}.`, 'success');
+}
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+
+/* ==================================================
+   ADMIN
+   ================================================== */
+function renderAdmin() {
+  if (!isAuthed()) { showView('login'); return; }
+  const search = (document.getElementById('admSearch')?.value || '').toLowerCase();
+  const list = SOULS.filter(s => !search || s.name.toLowerCase().includes(search) || (s.location||'').toLowerCase().includes(search));
+  const body = document.getElementById('admBody');
+  body.innerHTML = list.map(s => {
+    const pct = Math.min(100, Math.round((s.raised/s.goal)*100));
+    return `
+      <tr>
+        <td>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(140deg,var(--sand),var(--beige));display:grid;place-items:center;font-family:var(--serif);font-size:18px;color:var(--brown-deep);font-weight:500;">${s.name.charAt(0)}</div>
+            <div>
+              <div class="row-name">${escapeHtml(s.name)}${s.age?`, ${s.age}`:''}</div>
+              <div class="row-desc">${escapeHtml(s.location || s.desc || '')}</div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <span class="status-pill ${s.status}"><span class="dot"></span>${s.status==='adopted'?'Adotada':'Disponível'}</span>
+        </td>
+        <td>
+          <span class="mini-progress"><div style="width:${pct}%"></div></span>
+          <span style="font-size:13px;color:var(--brown-deep);font-weight:600;">€${fmtEur(s.raised)}</span>
+          <span style="font-size:12px;color:var(--muted);"> / ${pct}%</span>
+        </td>
+        <td style="font-family:var(--serif);color:var(--brown-deep);font-weight:600;">€${fmtEur(s.goal)}</td>
+        <td>
+          <div class="row-actions">
+            <button class="icon-btn gold" title="${s.status==='adopted'?'Marcar como disponível':'Marcar como adotada'}" onclick="toggleAdopted('${s.id}')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+            <button class="icon-btn" title="Editar" onclick="editSoul('${s.id}')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            </button>
+            <button class="icon-btn danger" title="Remover" onclick="deleteSoul('${s.id}')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-2 14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg>
+            </button>
+          </div>
+        </td>
+      </tr>
+    `;
+  }).join('');
+  if (list.length === 0) {
+    body.innerHTML = `<tr><td colspan="5" style="text-align:center;padding:60px 20px;color:var(--muted);">Nenhuma alma encontrada.</td></tr>`;
+  }
+  updateAdminStats();
+}
+
+function updateAdminStats() {
+  const total = SOULS.length;
+  const adopted = SOULS.filter(s => s.status==='adopted').length;
+  const avail = total - adopted;
+  const raised = SOULS.reduce((a,s)=>a+s.raised, 0);
+  const goalTotal = SOULS.reduce((a,s)=>a+s.goal, 0);
+  document.getElementById('admStatTotal').textContent = total;
+  document.getElementById('admStatAdopted').textContent = adopted;
+  document.getElementById('admStatAvail').textContent = avail;
+  document.getElementById('admStatRaised').textContent = fmtEur(raised);
+  document.getElementById('admStatAdoptedPct').textContent = total ? `${Math.round((adopted/total)*100)}% do total` : '—';
+  document.getElementById('admStatGoal').textContent = goalTotal ? `${Math.round((raised/goalTotal)*100)}% da meta global` : '—';
+}
+
+function toggleAdopted(id) {
+  const s = SOULS.find(x=>x.id===id);
+  if (!s) return;
+  s.status = s.status === 'adopted' ? 'available' : 'adopted';
+  saveSouls(SOULS); renderAdmin();
+  toast(`${s.name} marcada como ${s.status === 'adopted' ? 'adotada' : 'disponível'}.`, 'success');
+}
+
+function deleteSoul(id) {
+  const s = SOULS.find(x=>x.id===id);
+  if (!s) return;
+  if (!confirm(`Remover ${s.name} do projeto? Esta ação não pode ser revertida.`)) return;
+  SOULS = SOULS.filter(x => x.id !== id);
+  saveSouls(SOULS); renderAdmin();
+  toast(`${s.name} removida.`, '');
+}
+
+function editSoul(id) {
+  const s = SOULS.find(x=>x.id===id);
+  if (!s) return;
+  editingId = id;
+  document.getElementById('soulModalTitle').textContent = `Editar: ${s.name}`;
+  document.getElementById('fId').value = id;
+  document.getElementById('fName').value = s.name;
+  document.getElementById('fAge').value = s.age || '';
+  document.getElementById('fLocation').value = s.location || '';
+  document.getElementById('fGoal').value = s.goal;
+  document.getElementById('fRaised').value = s.raised;
+  document.getElementById('fStatus').value = s.status;
+  document.getElementById('fDesc').value = s.desc || '';
+  document.getElementById('soulModal').classList.add('open');
+}
+
+function openSoulModal() {
+  editingId = null;
+  document.getElementById('soulModalTitle').textContent = 'Nova alma';
+  document.getElementById('fId').value = '';
+  document.getElementById('fName').value = '';
+  document.getElementById('fAge').value = '';
+  document.getElementById('fLocation').value = '';
+  document.getElementById('fGoal').value = 500;
+  document.getElementById('fRaised').value = 0;
+  document.getElementById('fStatus').value = 'available';
+  document.getElementById('fDesc').value = '';
+  document.getElementById('soulModal').classList.add('open');
+}
+
+function saveSoul(e) {
+  e.preventDefault();
+  const data = {
+    id: editingId || 's' + Date.now(),
+    name: document.getElementById('fName').value.trim(),
+    age: parseInt(document.getElementById('fAge').value) || null,
+    location: document.getElementById('fLocation').value.trim(),
+    goal: parseFloat(document.getElementById('fGoal').value) || 500,
+    raised: parseFloat(document.getElementById('fRaised').value) || 0,
+    status: document.getElementById('fStatus').value,
+    desc: document.getElementById('fDesc').value.trim(),
+  };
+  if (editingId) {
+    const idx = SOULS.findIndex(x=>x.id===editingId);
+    SOULS[idx] = data;
+    toast('Alma atualizada com sucesso.', 'success');
+  } else {
+    SOULS.unshift(data);
+    toast(`${data.name} adicionada ao projeto.`, 'success');
+  }
+  saveSouls(SOULS);
+  closeModal('soulModal');
+  renderAdmin();
+}
+
+/* ==================================================
+   TOASTS
+   ================================================== */
+function toast(msg, kind='') {
+  const t = document.createElement('div');
+  t.className = 'toast ' + kind;
+  t.innerHTML = `<span>${kind==='success'?'✓':kind==='error'?'!':'•'}</span>${escapeHtml(msg)}`;
+  document.getElementById('toasts').appendChild(t);
+  setTimeout(()=>{ t.style.opacity='0'; t.style.transform='translateX(20px)'; t.style.transition='all .3s'; }, 3200);
+  setTimeout(()=> t.remove(), 3600);
+}
+
+/* ==================================================
+   INIT
+   ================================================== */
+renderSouls();
+
+// Reveal auto-authed admin if returning
+if (isAuthed() && location.hash === '#admin') showView('admin');
+</script>
+</body>
+</html>
