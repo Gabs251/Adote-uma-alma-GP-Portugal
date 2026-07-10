@@ -135,7 +135,7 @@
 
   /* ============ COUNTDOWN (hero-integrated) ============ */
   .countdown-section {
-    padding: 56px 0 8px;
+    padding: 40px 0 48px;
     text-align: center;
   }
   .countdown-eyebrow {
@@ -235,7 +235,7 @@
     to { opacity: 1; transform: translateY(0); }
   }
   @media (max-width: 768px) {
-    .countdown-section { padding: 40px 0 4px; }
+    .countdown-section { padding: 32px 0 36px; }
     .countdown-timer { gap: 10px; margin-top: 28px; }
     .cd-card { padding: 18px 14px; min-width: 68px; border-radius: 14px; }
   }
@@ -246,7 +246,7 @@
 
   /* ============ HERO ============ */
   .hero {
-    padding: 80px 0 60px;
+    padding: 40px 0 60px;
     position: relative;
   }
   .hero-eyebrow {
@@ -257,6 +257,7 @@
     font-size: 12px; letter-spacing: 0.12em;
     text-transform: uppercase; color: var(--gold-deep);
     font-weight: 600;
+    margin-top: 8px;
   }
   .hero-eyebrow::before {
     content: ''; width: 6px; height: 6px; border-radius: 50%;
@@ -388,43 +389,27 @@
     box-shadow: var(--shadow-lg);
     border-color: var(--line-strong);
   }
-  .soul-media {
-    position: relative;
-    aspect-ratio: 4/5;
-    background: linear-gradient(140deg, var(--sand), var(--beige));
-    overflow: hidden;
-  }
-  .soul-media::before {
-    content: '';
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(circle at 30% 20%, rgba(255,255,255,0.35), transparent 55%),
-      repeating-linear-gradient(45deg, rgba(107,68,35,0.05) 0 2px, transparent 2px 14px);
-  }
-  .soul-initial {
-    position: absolute; inset: 0;
-    display: grid; place-items: center;
-    font-family: var(--serif);
-    font-size: 92px; font-weight: 300;
-    color: rgba(62,40,18,0.35);
-    letter-spacing: -0.03em;
+  .soul-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
   }
   .soul-badge {
-    position: absolute; top: 14px; left: 14px;
     padding: 6px 12px; border-radius: 999px;
     font-size: 11px; font-weight: 700;
     letter-spacing: 0.1em; text-transform: uppercase;
-    background: rgba(251,246,236,0.95);
+    background: var(--cream-2);
     color: var(--brown-deep);
-    backdrop-filter: blur(6px);
     display: inline-flex; align-items: center; gap: 6px;
+    flex-shrink: 0;
   }
   .soul-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: #4CAF50; box-shadow: 0 0 0 3px rgba(76,175,80,0.2); }
   .soul-badge.adopted .dot { background: var(--gold); box-shadow: 0 0 0 3px rgba(201,162,75,0.25); }
   .soul-badge.adopted { color: var(--gold-deep); }
 
   .soul-body {
-    padding: 22px;
+    padding: 28px 28px 24px;
     display: flex; flex-direction: column; gap: 14px;
     flex: 1;
   }
@@ -439,11 +424,8 @@
   .soul-name .age { color: var(--muted); font-size: 16px; font-weight: 400; margin-left: 6px; }
   .soul-desc {
     font-size: 14px; color: var(--brown);
-    line-height: 1.55;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    line-height: 1.65;
+    white-space: pre-line;
   }
 
   /* Progress */
@@ -889,7 +871,7 @@
 
   /* ============ RESPONSIVE ============ */
   @media (max-width: 900px) {
-    .hero { padding: 50px 0 40px; }
+    .hero { padding: 30px 0 40px; }
     .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .hero-stat { border-left: none; padding: 10px 0; border-top: 1px solid var(--line); }
     .hero-stat:nth-child(-n+2) { border-top: none; }
@@ -1455,18 +1437,12 @@
 /* ==================================================
    DATA STORE (localStorage)
    ================================================== */
-const STORAGE_KEY = 'adote_uma_alma_v2';
+const STORAGE_KEY = 'adote_uma_alma_v3';
 const AUTH_KEY = 'adote_alma_auth';
 
 const seedSouls = [
-  { id:'s1', name:'Miguel', age:9, location:'Luanda, Angola', desc:'Miguel sonha em ser professor. Vive com a avó desde os 4 anos e precisa de apoio para continuar na escola.', goal:110, raised:0, status:'available' },
-  { id:'s2', name:'Sofia', age:24, location:'Maputo, Moçambique', desc:'Mãe solteira de dois filhos, à procura de estabilidade para reconstruir a sua vida com fé e coragem.', goal:110, raised:0, status:'available' },
-  { id:'s3', name:'Kayla', age:16, location:'Nairobi, Quénia', desc:'Órfã desde os 12 anos. Estuda de dia e trabalha à noite. Precisamos de a acompanhar até ao secundário.', goal:110, raised:0, status:'available' },
-  { id:'s4', name:'João', age:32, location:'Cabo Verde', desc:'Recuperou de um período difícil e agora deseja apoio para começar um pequeno negócio de pescas.', goal:110, raised:0, status:'available' },
-  { id:'s5', name:'Amara', age:7, location:'Lagos, Nigéria', desc:'A alegria em pessoa. Amara ainda não frequenta a escola formal — o apoio permitirá o seu primeiro ano.', goal:110, raised:0, status:'available' },
-  { id:'s6', name:'Elias', age:14, location:'São Tomé', desc:'Talentoso em música. Sonha aprender a tocar piano. Precisamos de contribuir para o seu instrumento e aulas.', goal:110, raised:0, status:'available' },
-  { id:'s7', name:'Naomi', age:19, location:'Porto, Portugal', desc:'Estudante universitária cuja família enfrenta dificuldades. O apadrinhamento cobre alimentação e transporte.', goal:110, raised:0, status:'available' },
-  { id:'s8', name:'Isaac', age:11, location:'Bissau, Guiné-Bissau', desc:'Apaixonado por leitura. Precisa de material escolar e um apoio contínuo para se manter na escola.', goal:110, raised:0, status:'available' },
+  { id:'s1', name:'Alma #01', age:40, location:'', desc:'Tenho 40 anos, e o motivo de eu ir novamente ao Redenção é que sempre volto cheio do Espírito Santo e com uma compreensão maior das coisas de Deus.\n\nSão três dias maravilhosos, marcados pela união entre os irmãos e irmãs da igreja e por um verdadeiro descanso da correria do mundo aqui fora.\n\nA minha experiência sempre foi muito boa e, por esse motivo, estou indo mais uma vez.', goal:110, raised:0, status:'available' },
+  { id:'s2', name:'Alma #02', age:null, location:'', desc:'', goal:110, raised:0, status:'available' },
 ];
 
 function loadSouls() {
@@ -1558,19 +1534,16 @@ function soulCard(s) {
   const adopted = s.status === 'adopted';
   return `
     <article class="soul-card" aria-label="Alma: ${s.name}">
-      <div class="soul-media">
-        <div class="soul-initial">${(s.name || '?').charAt(0)}</div>
-        <div class="soul-badge ${adopted ? 'adopted' : ''}">
-          <span class="dot"></span>
-          ${adopted ? 'Adotada' : 'Disponível'}
-        </div>
-      </div>
       <div class="soul-body">
-        <div>
+        <div class="soul-head">
           <h3 class="soul-name">${escapeHtml(s.name)}${s.age ? `<span class="age">, ${s.age}</span>` : ''}</h3>
-          ${s.location ? `<div style="font-size:12px;color:var(--muted);margin-top:4px;letter-spacing:0.04em;">📍 ${escapeHtml(s.location)}</div>` : ''}
+          <div class="soul-badge ${adopted ? 'adopted' : ''}">
+            <span class="dot"></span>
+            ${adopted ? 'Adotada' : 'Disponível'}
+          </div>
         </div>
-        <p class="soul-desc">${escapeHtml(s.desc || '')}</p>
+        ${s.location ? `<div style="font-size:12px;color:var(--muted);margin-top:4px;letter-spacing:0.04em;">📍 ${escapeHtml(s.location)}</div>` : ''}
+        ${s.desc ? `<p class="soul-desc">${escapeHtml(s.desc)}</p>` : ''}
         <div class="progress-block">
           <div class="progress-meta">
             <div class="progress-amount">€${fmtEur(s.raised)}<span class="of"> / €${fmtEur(s.goal)}</span></div>
